@@ -8,7 +8,7 @@ const UserTable = ({ users }: UserTableProps) => {
     return (
         <>
             {/** Render all users in a table RIGHT HERE */}
-            <table>
+            <table className="simple-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -22,7 +22,9 @@ const UserTable = ({ users }: UserTableProps) => {
                         <tr key={user.id}>
                             <td>{user.id}</td>
                             <td>{user.name}</td>
-                            <td>{user.email}</td>
+                            <td>
+                                <a href={user.email}>{user.email}</a>
+                            </td>
                             <td>{user.isActive ? "Yes" : "No"}</td>
                         </tr>
                     ))}

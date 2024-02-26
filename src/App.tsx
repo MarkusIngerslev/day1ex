@@ -53,7 +53,7 @@ const Buttons = (props: ButtonProps) => {
                 List demo
             </button>
             <button className="btn-w100" onClick={() => handleSelected("ReactEvents1")}>
-                React events
+                Event demo (ImageButtons)
             </button>
         </>
     );
