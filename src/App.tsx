@@ -6,6 +6,7 @@ import EventDemo from "./exercises/EventDemo";
 import FormUncontrolled from "./exercises/FormUncontrolled";
 import StateDemo1 from "./exercises/StateDemo1";
 import StateDemo2 from "./exercises/StateDemo2";
+import StateDemo3 from "./exercises/StateDemo3";
 
 export default function App() {
     const [selectedView, setSelectedView] = useState("info");
@@ -26,14 +27,14 @@ export default function App() {
                     </div>
                     <div className="exercise-style">
                         {selectedView == "info" ? <p>All exercises for React day-1</p> : null}
+                        {/**Add the exercise components you create for each exercise using the key you used for the matching button  */}
                         {selectedView == "props1" ? <PropsDemo title="Props Demo" /> : null}
                         {selectedView == "list1" ? <ListDemo title="List Demo" /> : null}
                         {selectedView == "ReactEvents1" ? <EventDemo title="React Events" /> : null}
                         {selectedView == "FormsUncontrolled" ? <FormUncontrolled title="Forms Uncontrolled" /> : null}
                         {selectedView == "StateDemo1" ? <StateDemo1 title="State Demo" /> : null}
                         {selectedView == "StateDemo2" ? <StateDemo2 title="State Demo2" /> : null}
-
-                        {/**Add the exercise components you create for each exercise using the key you used for the matching button  */}
+                        {selectedView == "StateDemo3" ? <StateDemo3 title="State Demo3" /> : null}
                     </div>
                 </div>
             </div>
@@ -66,10 +67,13 @@ const Buttons = (props: ButtonProps) => {
                 Forms Uncontrolled
             </button>
             <button className="btn-w100" onClick={() => handleSelected("StateDemo1")}>
-                State Demo1
+                State Demo1 (Count)
             </button>
             <button className="btn-w100" onClick={() => handleSelected("StateDemo2")}>
-                State Demo2
+                State Demo2 (Update Object)
+            </button>
+            <button className="btn-w100" onClick={() => handleSelected("StateDemo3")}>
+                State Demo3 (Update Array)
             </button>
         </>
     );
