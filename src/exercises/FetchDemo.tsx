@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BaseProps } from "../types";
 const SERVER_URL = "http://localhost:8000/users";
 const DELAY = 500;
@@ -14,7 +14,6 @@ export default function FetchDemo1({ title }: BaseProps) {
     const [userId, setUserId] = useState(1);
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
-    
 
     //Use this to fetch the next user when the "Next User" button is clicked
     //Make sure you understand why we don't need useEffect here

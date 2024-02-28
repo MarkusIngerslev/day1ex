@@ -9,6 +9,8 @@ import StateDemo2 from "./exercises/StateDemo2";
 import StateDemo3 from "./exercises/StateDemo3";
 import UseEffectDemo from "./exercises/UseEffect";
 import FetchDemo from "./exercises/FetchDemo";
+import LiftingState from "./exercises/LiftingState";
+import LiftingStateRemote from "./exercises/LiftingStateRemote";
 
 export default function App() {
     const [selectedView, setSelectedView] = useState("info");
@@ -39,6 +41,10 @@ export default function App() {
                         {selectedView == "StateDemo3" ? <StateDemo3 title="State Demo3" /> : null}
                         {selectedView == "UseEffectDemo" ? <UseEffectDemo title="UseEffect Demo" /> : null}
                         {selectedView == "FetchDemo" ? <FetchDemo title="Fetch Demo" /> : null}
+                        {selectedView == "LiftingState" ? <LiftingState title="Lifting State" /> : null}
+                        {selectedView == "LiftingStateRemote" ? (
+                            <LiftingStateRemote title="Lifting State (Remote)" />
+                        ) : null}
                     </div>
                 </div>
             </div>
@@ -51,7 +57,7 @@ type ButtonProps = {
 };
 
 const Buttons = (props: ButtonProps) => {
-    const { onSelected: handleSelected, btnStyle: btnStyle } = props;
+    const { onSelected: handleSelected } = props;
     return (
         <>
             <button className="btn-w100" onClick={() => handleSelected("info")}>
@@ -79,8 +85,17 @@ const Buttons = (props: ButtonProps) => {
             <button className="btn-w100" onClick={() => handleSelected("StateDemo3")}>
                 State Demo3 (Update Array)
             </button>
+            <button className="btn-w100" onClick={() => handleSelected("UseEffectDemo")}>
+                UseEffect Demo
+            </button>
             <button className="btn-w100" onClick={() => handleSelected("FetchDemo")}>
                 Fetch Demo
+            </button>
+            <button className="btn-w100" onClick={() => handleSelected("LiftingState")}>
+                Lifting State
+            </button>
+            <button className="btn-w100" onClick={() => handleSelected("LiftingStateRemote")}>
+                Lifting State (Remote)
             </button>
         </>
     );
