@@ -11,6 +11,7 @@ import UseEffectDemo from "./exercises/UseEffect";
 import FetchDemo from "./exercises/FetchDemo";
 import LiftingState from "./exercises/LiftingState";
 import LiftingStateRemote from "./exercises/LiftingStateRemote";
+import ContextDemo from "./exercises/ContextDemo";
 
 export default function App() {
     const [selectedView, setSelectedView] = useState("info");
@@ -45,6 +46,7 @@ export default function App() {
                         {selectedView == "LiftingStateRemote" ? (
                             <LiftingStateRemote title="Lifting State (Remote)" />
                         ) : null}
+                        {selectedView == "ContextDemo" ? <ContextDemo title="Context Demo" /> : null}
                     </div>
                 </div>
             </div>
@@ -96,6 +98,9 @@ const Buttons = (props: ButtonProps) => {
             </button>
             <button className="btn-w100" onClick={() => handleSelected("LiftingStateRemote")}>
                 Lifting State (Remote)
+            </button>
+            <button className="btn-w100" onClick={() => handleSelected("ContextDemo")}>
+                Context Demo -useContext
             </button>
         </>
     );
