@@ -27,11 +27,12 @@ export default function LiftingState({ title }: BaseProps) {
         const user = users.find((u) => u.id === id);
         setUserToEdit(user);
     };
+
     <h2>{title}</h2>;
     return (
         <>
             <div className="outer">
-                <h2 style={{ margin: 0 }}>Root Component</h2>
+                <h2 style={{ margin: 0 }}>Root component</h2>
                 <p style={{ margin: 0 }}>
                     This is where ALL the users live (Single Source of truth). <em>User Count:</em>{" "}
                     <b>{users.length}</b>

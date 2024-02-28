@@ -1,13 +1,20 @@
 import { BaseProps } from "../types";
-import { User, users as usersDB, getNextId } from "../data/data";
-import { useState } from "react";
+import { User, getNextId } from "../data/data";
+import { useState, useEffect } from "react";
 import UserTableWithButtons from "../components/UserTableWithButtons";
 import "./liftingState.css";
 import UserFormControlled, { AddEditDeleteFunction } from "../components/UserFormControlled";
 
 export default function LiftingState({ title }: BaseProps) {
-    const [users, setUsers] = useState(usersDB);
+    const [users, setUsers] = useState<User[]>([]);
     const [userToEdit, setUserToEdit] = useState<User | undefined>(undefined);
+
+    useEffect(() => {
+        fetch("http://localhost:8000/users")
+            .then((response) => response.json())
+            .then((data) => setUsers(data))
+            .catch((error) => console.error(error));
+    }, []);
 
     const addEditDeleteUser: AddEditDeleteFunction = (user, isDelete) => {
         if (isDelete) {
@@ -31,7 +38,7 @@ export default function LiftingState({ title }: BaseProps) {
     return (
         <>
             <div className="outer">
-                <h2 style={{ margin: 0 }}>Root Component</h2>
+                <h2 style={{ margin: 0 }}>Root component</h2>
                 <p style={{ margin: 0 }}>
                     This is where ALL the users live (Single Source of truth). <em>User Count:</em>{" "}
                     <b>{users.length}</b>
