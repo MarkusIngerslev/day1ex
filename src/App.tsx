@@ -53,7 +53,6 @@ export default function App() {
         </>
     );
 }
-
 type ButtonProps = {
     onSelected: (selected: string) => void;
 };
